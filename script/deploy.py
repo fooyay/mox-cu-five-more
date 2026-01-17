@@ -1,4 +1,4 @@
-from src import favorites, favorites_factory  # type: ignore
+from src import favorites, favorites_factory, five_more  # type: ignore
 from moccasin.boa_tools import VyperContract  # type: ignore
 
 
@@ -24,6 +24,14 @@ def deploy_factory(favorites_contract: VyperContract) -> None:
     print(f"Original contract stored value remains: {favorites_contract.retrieve()}")
 
 
+def deploy_five_more() -> None:
+    five_more_contract: VyperContract = five_more.deploy()
+    print(f"Five More contract deployed at: {five_more_contract.address}")
+    # result: int = five_more_contract.add_five(10)
+    # print(f"Five More contract add_five(10) returned: {result}")
+
+
 def moccasin_main():
     favorites_contract = deploy_favorites()
     deploy_factory(favorites_contract)
+    deploy_five_more()
