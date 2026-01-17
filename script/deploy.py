@@ -30,6 +30,8 @@ def deploy_five_more() -> None:
     print(f"Five More retrive: {five_more_contract.retrieve()}")
     five_more_contract.store(20)
     print(f"Five More retrive after store(20): {five_more_contract.retrieve()}")
+    five_more_contract.double_store(15)
+    print(f"Five More double_retrieve after double_store(15): {five_more_contract.double_retrieve()}")
     # result: int = five_more_contract.add_five(10)
     # print(f"Five More contract add_five(10) returned: {result}")
 
