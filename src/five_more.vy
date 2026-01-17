@@ -5,15 +5,15 @@ import favorites
 
 
 initializes: favorites
+exports: (
+    favorites.retrieve,
+    favorites.add_person
+)
 
 @deploy
 def __init__():
     favorites.__init__()
 
-
-
-# my_favorite_number: uint256
-
-# @external
-# def store(new_number: uint256):
-#     self.my_favorite_number = new_number
+@external
+def store(new_number: uint256):
+    favorites.my_favorite_number = new_number + 5
