@@ -36,6 +36,12 @@ def deploy_five_more() -> None:
     # print(f"Five More contract add_five(10) returned: {result}")
 
 
+# def deploy_ownable_2step() -> None:
+#     ownable_contract: VyperContract = ownable_2step.deploy()
+#     print(f"Ownable 2Step contract deployed at: {ownable_contract.address}")
+# Further interactions can be added here as needed.
+
+
 def moccasin_main():
     favorites_contract = deploy_favorites()
     deploy_factory(favorites_contract)

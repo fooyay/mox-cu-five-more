@@ -3,10 +3,11 @@
 
 import favorites 
 import double_it
-
+from . import math_lib
 
 initializes: favorites
 initializes: double_it
+
 exports: (
     favorites.retrieve,
     favorites.add_person,
@@ -22,4 +23,5 @@ def __init__():
 
 @external
 def store(new_number: uint256):
-    favorites.my_favorite_number = new_number + 5
+    # math_lib.set_value(2)
+    favorites.my_favorite_number = math_lib.times_two(new_number)
