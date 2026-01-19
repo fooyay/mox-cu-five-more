@@ -1,5 +1,5 @@
 # ownable_2step.vy
-import ownable
+from . import ownable
 
 uses: ownable
 
@@ -11,15 +11,15 @@ pending_owner: address  # the pending owner in the 2-step transfer process
 def __init__():
     self.pending_owner = empty(address)
 
-@external
-def begin_transfer(new_owner: address):
+@internal
+def transfer_ownership(new_owner: address):
     ownable._check_owner()
 
     self.pending_owner = new_owner
 
-@external
-def accept_transfer(new_owner: address):
+@internal
+def accept_ownership():
     assert msg.sender == self.pending_owner
 
-    ownable.owner = new_owner
+    ownable.owner = msg.sender
     self.pending_owner = empty(address)
